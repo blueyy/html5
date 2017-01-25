@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html5 input</title>
+	<style type="text/css">
+	h5 {
+		font-family: verdana;
+	}
+	</style>
+</head>
+<body>
+<form style='width: 500px; float: left;'>
+	<fieldset>
+		<legend>html5 input</legend>
+		<h5>Color:<input type='color' id='color' /></h5>
+		<h5>Date: <input type='date' id='date' /><h5>
+		<h5>DateTime: <input type='datetime' id='dtime' /></h5>
+		<h5>LDateTime: <input type='datetime-local' id='ldtime' /></h5>
+		<h5>E-mail: <input type='email' id='email' /></h5>
+		<h5>Month: <input type='month' id='month' /></h5>
+		<h5>Number: <input type='number' id='number' min='0' max='20' step='1' value='10' required /></h5>
+		<h5>Range: <input type='range' id='range' min='2' max='20' step='2' value='10' /></h5>
+		<h5>Time： <input type='time' id='time' /></h5>
+		<h5>URL: <input type='url' id='url' /></h5>
+		<h5>Week: <input type='week' id='week' /></h5>
+		<h5>Browser: <input id='browserValue' list='browser'>
+		<datalist id='browser'>
+			<option value='Chrome'></option>
+			<option value='Internet Explorer'></option>
+			<option value='Safari'></option>
+			<option value='Firefox'></option>
+			<option value='Opera'></option>
+		</datalist>
+		</h5>
+		<h5>UserName:<input type='text' id='name' /> Keygen:<keygen name='security'></keygen></h5>
+		<h5 oninput='x.value=parseInt(a.value) + parseInt(b.value)'>Compute: 0 <input id='a' type='range' min='0' max='20' value='10' step='1' /> 20 + <input id='b' type='number' min='0' max='60' step='3' value='30' /> = <output id='x' for='a b'></output></h5>
+		<input type='button' value='ShowValue' onclick='showValue()' />
+	</fieldset>
+</form>
+<form style='width: 500px; float: left;'>
+	<fieldset>
+		<legend>html5 value</legend>
+		<h5 id='vcolor'></h5>
+		<h5 id='vdate'></h5>
+		<h5 id='vdtime'></h5>
+		<h5 id='vldtime'></h5>
+		<h5 id='vemail'></h5>
+		<h5 id='vmonth'></h5>
+		<h5 id='vnumber'></h5>
+		<h5 id='vrange'></h5>
+		<h5 id='vtime'></h5>
+		<h5 id='vurl'></h5>
+		<h5 id='vweek'></h5>
+		<h5 id='vbrowser'></h5>
+		<h5 id='voutput'></h5>
+	</fieldset>
+</form>
+<script type="text/javascript">
+	function showValue () {
+		var color = document.getElementById('color').value
+		var date = document.getElementById('date').value
+		var dtime = document.getElementById('dtime').value
+		var ldtime = document.getElementById('ldtime').value
+		var email = document.getElementById('email').value
+		var month = document.getElementById('month').value
+		var number = document.getElementById('number').value
+		var range = document.getElementById('range').value
+		var time = document.getElementById('time').value
+		var url = document.getElementById('url').value
+		var week = document.getElementById('week').value
+		var browser = document.getElementById('browserValue').value
+		var output = document.getElementById('x').value
+		document.getElementById('vcolor').innerHTML = 'Color:' + color
+		document.getElementById('vdate').innerHTML = 'Date:' + date
+		document.getElementById('vdtime').innerHTML = 'DateTime:' + dtime
+		document.getElementById('vldtime').innerHTML = 'LocalDateTime:' + ldtime
+		document.getElementById('vemail').innerHTML = 'E-mail:' + email
+		document.getElementById('vmonth').innerHTML = 'Month:' + month
+		document.getElementById('vnumber').innerHTML = 'Number:' + number
+		document.getElementById('vrange').innerHTML = 'Range:' + range
+		document.getElementById('vtime').innerHTML = 'Time:' + time
+		document.getElementById('vurl').innerHTML = 'URL:' + url
+		document.getElementById('vweek').innerHTML = 'Week:' + week
+		document.getElementById('vbrowser').innerHTML = 'Browser:' + browser
+		document.getElementById('voutput').innerHTML = 'Output:' + output
+	}
+</script>
+</body>
+</html>

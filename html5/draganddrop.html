@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html5 drag and drop</title>
+	<style type="text/css">
+	div {
+		width: 500px;
+		height: 300px;
+		border: 1px solid blue;
+		float: left;
+		margin: 10px;
+		padding: 10px;
+	}
+	</style>
+</head>
+<body>
+<div id='div1' ondragover='allowDrag(event)' ondrop='drop(event)'>
+	<img id='img' src='media/fengma.PNG' width='500px' height='300px' draggable='true' ondragstart='drag(event)'>
+</div>
+<div id='div2' ondragover='allowDrag(event)' ondrop='drop(event)'></div>
+<script type="text/javascript">
+	function drag (ev) {
+		ev.dataTransfer.setData('Text', ev.target.id)
+	}
+	function allowDrag (ev) {
+		ev.preventDefault()
+	}
+	function drop (ev) {
+		ev.preventDefault()
+		var data = ev.dataTransfer.getData('Text')
+		ev.target.appendChild(document.getElementById(data))
+	}
+</script>
+</body>
+</html>
