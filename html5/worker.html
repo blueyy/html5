@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html5 worker</title>
+</head>
+<body>
+<div>
+	<p id='count'></p>
+	<input type='button' value='Start' onclick='startWorker()'>
+	<input type='button' value='Stop' onclick='stopWorker()'>
+</div>
+<script type="text/javascript">
+testWorker()
+var w
+function testWorker () {
+	if (!typeof (Worker)) {
+		throw new Error("your explorer doesn't support worker")
+	}
+}
+function startWorker () {
+	if (typeof (w) == 'undefined') {
+		w = new Worker('worker.js')
+	}
+	w.onmessage = function (event) {
+		document.getElementById('count').innerHTML = '计数：' + event.data
+	}
+}
+function stopWorker() {
+	w.terminate()
+	w = undefined
+}
+</script>
+</body>
+</html>

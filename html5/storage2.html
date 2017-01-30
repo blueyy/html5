@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html5 storage example</title>
+</head>
+<body>
+<div id='inputInfo'>
+	<p>WebName: <input type='text' autofocus require id='webName'></p>
+	<p>Website: <input type='text' require id='website'></p>
+	<p><input type='button' value='Save' onclick='save()'></p>
+</div>
+<div id='searchInfo'>
+	<p>WebName: <input type='text' autofocus require id='swebName'></p>
+	<p><input type='button' value='Search' onclick='search()'></p>
+	<p id='rwebsite'></p>
+</div>
+<div id='webList'>
+	<table border=1 cellspacing=0>
+		<caption>Web Address List</caption>
+		<thead>
+			<th>WebName</th>
+			<th>Website</th>
+		</thead>
+		<tbody id='tbody'>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	var tbody = document.getElementById('tbody')
+	load()
+	function load () {
+		var list = localStorage
+		if (list.length > 9) {
+			var length = list.length
+			console.log(length)
+			for (var i = 9; i < length; i++) {
+				var webName = localStorage.key(i)
+				var website = localStorage.getItem(webName)
+				console.log(webName, website)
+				var webinfo = '<tr><td>' + webName + '</td><td>' + website + '</td></tr>'
+				tbody.innerHTML += webinfo
+			}
+		} else {
+			tbody.innerHTML = 'Nothing found in storage!'
+		}
+	}
+	function save () {
+		var webName = document.getElementById('webName').value
+		var website = document.getElementById('website').value
+		if (typeof (Storage) !== undefined) {
+			if (!webName || !website) {
+				alert('Website and WebName information are all necessary, Please perfect the information.')
+			} else if (!localStorage.getItem(webName)) {
+				localStorage.setItem(webName, website)
+			} else if (localStorage.getItem(webName)) {
+				alert(webName + 'has been saved!')
+			}
+		} else {
+			alert("your explorer doesn't surpport localStorage!")
+		}	
+	}
+	function search () {
+		var swebName = document.getElementById('swebName').value
+		if (!swebName) {
+			alert('Please input a website name you want to search!')
+		} else {
+			var rwebsite = localStorage.getItem(swebName)
+			if (!rwebsite) {
+				document.getElementById('rwebsite').innerHTML = 'Nothing found in storage!'
+			} else {
+				document.getElementById('rwebsite').innerHTML = 'Website: ' + rwebsite
+			}
+		}
+	}
+</script>
+</body>
+</html>

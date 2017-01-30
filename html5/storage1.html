@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html5 localStorage</title>
+</head>
+<body>
+<input type='button' value='Click Me' onclick='lclickMe()'>
+<input type='button' value='Click Me' onclick='sclickMe()'>
+<p id='lresult'></p>
+<p id='sresult'></p>
+<script type="text/javascript">
+	function lclickMe () {
+		if (typeof (Storage) !== 'undefined') {
+			if (localStorage.Clickcount) {
+				localStorage.Clickcount = Number(localStorage.Clickcount) + 1
+			} else {
+				localStorage.Clickcount = 1
+			}
+			document.getElementById('lresult').innerHTML = "you've clicked " + localStorage.Clickcount + ' times.'
+		} else {
+			document.getElementById('lresult').innerHTML = "your explorer doesn't surpport local storage!"
+		}
+	}
+	function sclickMe () {
+		if (typeof (Storage) !== 'undefined') {
+			if (sessionStorage.Clickcount) {
+				sessionStorage.Clickcount = Number(sessionStorage.Clickcount) + 1
+			} else {
+				sessionStorage.Clickcount = 1
+			}
+			document.getElementById('sresult').innerHTML = "you've clicked " + sessionStorage.Clickcount + ' times.'
+		} else {
+			document.getElementById('sresult').innerHTML = "your explorer doesn't surpport session storage."
+		}
+	}
+</script>
+</body>
+</html>
