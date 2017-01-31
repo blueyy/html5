@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css background</title>
+</head>
+<body>
+<div>
+	<div id='bgStyleSetting' style='width: 550px; border: 5px dotted blue; padding: 5px; float:left;'>
+		<p style='text-align: center; font-family: Arial;'><b>Background Style Setting</b></p><hr/>
+		Size-Width <input type='range' min='50' max='500' step='10'>
+		Size-height <input type='range' min='50' max='500' step='10'><hr/>
+		Background Color <input id='color' type='color' value='#00ff00'>
+		Background Clip <select id='clip'>
+			<option value='border-box' selected='true'>BorderBox</option>
+			<option value='padding-box'>PaddingBox</option>
+			<option value='content-box'>ContentBox</option>
+		</select><hr/>
+		Backgroung Image <select id='image'>
+			<option value='fengma' selected='true'>FengMa</option>
+			<option value='runoob'>Runoob</option>
+			<option value='none'>None</option>
+			<option value='inherit'>Inherit</option>
+		</select>
+		<i style="font-size: 5px;">无重复</i><input type='checkbox' id='norepeat' style="vertical-align:-2px;">
+		Repeat-x <input type='checkbox' id='repeatx'>
+		Repeat-y <input type='checkbox' id='repeaty'></br>
+			IPos-x: Left <input name='iposx' type='radio' value='left'>
+			Right <input name='posx' type='radio' value='right'> |
+			IPos-y: Top<input name='iposy' type='radio' value='top'>
+			Bottom<input name='posy' type='radio' value='bottom'></br>
+		Attachment <select id='attachment'>
+			<option value='fixed'>Fixed</option>
+			<option value='scroll' selected='true'>Scroll</option>
+			<option value='inherit'>Inherit</option>
+		</select>
+		Background Origin <select id='origin'>
+			<option value='border-box'>BorderBox</option>
+			<option value='content-box'>ContentBox</option>
+			<option value='padding-box' selected='true'>PaddingBox</option>
+		</select></br>
+		ImageBgcolor LinearGradiet <input type='radio' name='colorStyle' value='linear-gradient' checked='true'>
+		RadialGradient<input type='radio' name='colorStyle' value='radial-gradient'></br>
+		Direction <select id='ldirection'>
+			<option value='to left'>ToLeft</option>
+			<option value='to right'>ToRight</option>
+			<option value='to bottom'>ToBottom</option>
+			<option value='to top'>ToTop</option>
+		</select></br>
+		Color1 <input type='color' value='#00ff00' id='lcolor1'>
+		Pos1&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='lrange1'></br>
+		Color2 <input type='color' value='#0000ff' id='lcolor2'>
+		Pos2&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='lrange2'> 
+		<input type='button' value='AddColor' onclick='addLinearColor()'></br>
+		DefaultSize <select id='defaultSize'>
+			<option value='closest-size'>Closest-size</option>
+			<option value='closest-corner'>Closest-corner</option>
+			<option value='farthest-size'>Farthest-size</option>
+			<option value='farthest-corner'>Farthest-corner</option>
+		</select></br>
+		Sizex <input type='range' value='0.1' min='0' max='1' step='0.01' id='sizex'>
+		Sizey <input type='range' value='0.1' min='0' max='1' step='0.01' id='sizey'></br>
+		DefaultPosx <select id='defaultPosx'>
+			<option value='left'>Left</option>
+			<option value='center'>Center</option>
+			<option value='right'>Right</option>
+		</select>
+		DefaultPosy <select id='defaultPosy'>
+			<option value='top'>Top</option>
+			<option value='center'>Center</option>
+			<option value='bottom'>Bottom</option>
+		</select></br>
+		CPosx <input type='range' value='0.5' min='0' max='1' step='0.01' id='cposx'>
+		CPosy <input type='range' value='0.5' min='0' max='1' step='0.01' id='cposy'></br>
+		Color1 <input type='color' value='#00ff00' id='rcolor1'>
+		Pos1&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='rrange1'></br>
+		Color2 <input type='color' value='#0000ff' id='rcolor2'>
+		Pos2&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='rrange2'> 
+		<input type='button' value='AddColor' onclick='addRadialColor()'></br>
+		BlendMode <select id='blendMode'>
+			<option value='normal'>Normal</option>
+			<option value='multiply'>Multiply</option>
+			<option value='screen'>Screen</option>
+			<option value='overlay'>Overlay</option>
+			<option value='darken'>Darken</option>
+			<option value='lighten'>Lighten</option>
+			<option value='color-dodge' selected='true'>Color-dodge</option>
+			<option value='saturation'>Saturation</option>
+			<option value='color'>Color</option>
+			<option value='luminosity'>Luminosity</option>
+		</select>
+	</div>
+	<div id='bgStyle' style='float: left;'>this is a background style test div.</div>
+</div>
+</body>
+</html>
