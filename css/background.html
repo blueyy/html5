@@ -2,94 +2,395 @@
 <html>
 <head>
 	<title>css background</title>
+	<style type="text/css">
+	b {
+		font-family: Arial;
+		color: purple;
+	}
+	</style>
 </head>
 <body>
 <div>
-	<div id='bgStyleSetting' style='width: 550px; border: 5px dotted blue; padding: 5px; float:left;'>
+	<div style='float: left;'>
+	<div style='width: 550px; border: 5px dotted blue; padding: 5px;'>
 		<p style='text-align: center; font-family: Arial;'><b>Background Style Setting</b></p><hr/>
-		Size-Width <input type='range' min='50' max='500' step='10'>
-		Size-height <input type='range' min='50' max='500' step='10'><hr/>
-		Background Color <input id='color' type='color' value='#00ff00'>
-		Background Clip <select id='clip'>
-			<option value='border-box' selected='true'>BorderBox</option>
+		<b>Size</b></br>
+		Size-Width<input id='sizew' type='range' min='50' max='800' value='400' step='10' onchange="changeStyle('sizew', 'id')">
+		Size-height<input id='sizeh' type='range' min='50' max='600' value='300' step='10' onchange="changeStyle('sizeh', 'id')"><hr/>
+		<b>BackGroundColor</b></br>
+		BackgroundColor<input id='bgcolor' type='color' value='#00ff00' onchange="changeStyle('bgcolor', 'id')">
+		BackgroundClip<select id='clip'onchange="changeStyle('clip', 'id')">
 			<option value='padding-box'>PaddingBox</option>
-			<option value='content-box'>ContentBox</option>
+			<option value='content-box' selected='true'>ContentBox</option>
 		</select><hr/>
-		Backgroung Image <select id='image'>
-			<option value='fengma' selected='true'>FengMa</option>
-			<option value='runoob'>Runoob</option>
+		<b>BackgroundImage</b></br>
+		Image<select id='bgimage' onchange="changeStyle('bgimage', 'id')">
+			<option value='../media/fengma.PNG'>FengMa</option>
+			<option value='../media/logo.png' selected='true'>Runoob</option>
 			<option value='none'>None</option>
 			<option value='inherit'>Inherit</option>
 		</select>
-		<i style="font-size: 5px;">无重复</i><input type='checkbox' id='norepeat' style="vertical-align:-2px;">
-		Repeat-x <input type='checkbox' id='repeatx'>
-		Repeat-y <input type='checkbox' id='repeaty'></br>
-			IPos-x: Left <input name='iposx' type='radio' value='left'>
-			Right <input name='posx' type='radio' value='right'> |
-			IPos-y: Top<input name='iposy' type='radio' value='top'>
-			Bottom<input name='posy' type='radio' value='bottom'></br>
-		Attachment <select id='attachment'>
+		NoRepeat<input type='radio' name='irepeat' value='no-repeat' checked='true' onchange="changeStyle('irepeat', 'name')">
+		Repeat-x<input type='radio' name='irepeat' value='repeat-x' onchange="changeStyle('irepeat', 'name')">
+		Repeat-y<input type='radio' name='irepeat' value='repeat-y' onchange="changeStyle('irepeat', 'name')"></br>
+		IPos-x: Left<input name='iposx' type='radio' value='left' checked='true' onchange="changeStyle('iposx', 'name')">
+		Center<input name='iposx' type='radio' value='center' onchange="changeStyle('iposx', 'name')">
+		Right<input name='iposx' type='radio' value='right' onchange="changeStyle('iposx', 'name')"> |
+		IPos-y: Top<input name='iposy' type='radio' value='top' onchange="changeStyle('iposy', 'name')">
+		Center<input name='iposy' type='radio' value='center' checked='true' onchange="changeStyle('iposy', 'name')">
+		Bottom<input name='iposy' type='radio' value='bottom' onchange="changeStyle('iposy', 'name')"></br>
+		Attachment<select id='attachment'onchange="changeStyle('attachment', 'id')">
 			<option value='fixed'>Fixed</option>
 			<option value='scroll' selected='true'>Scroll</option>
 			<option value='inherit'>Inherit</option>
 		</select>
-		Background Origin <select id='origin'>
+		Background Origin <select id='origin' onchange="changeStyle('origin', 'id')">
 			<option value='border-box'>BorderBox</option>
-			<option value='content-box'>ContentBox</option>
-			<option value='padding-box' selected='true'>PaddingBox</option>
+			<option value='content-box' selected='true'>ContentBox</option>
+			<option value='padding-box'>PaddingBox</option>
 		</select></br>
-		ImageBgcolor LinearGradiet <input type='radio' name='colorStyle' value='linear-gradient' checked='true'>
-		RadialGradient<input type='radio' name='colorStyle' value='radial-gradient'></br>
-		Direction <select id='ldirection'>
-			<option value='to left'>ToLeft</option>
-			<option value='to right'>ToRight</option>
-			<option value='to bottom'>ToBottom</option>
-			<option value='to top'>ToTop</option>
-		</select></br>
-		Color1 <input type='color' value='#00ff00' id='lcolor1'>
-		Pos1&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='lrange1'></br>
-		Color2 <input type='color' value='#0000ff' id='lcolor2'>
-		Pos2&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='lrange2'> 
-		<input type='button' value='AddColor' onclick='addLinearColor()'></br>
-		DefaultSize <select id='defaultSize'>
-			<option value='closest-size'>Closest-size</option>
-			<option value='closest-corner'>Closest-corner</option>
-			<option value='farthest-size'>Farthest-size</option>
-			<option value='farthest-corner'>Farthest-corner</option>
-		</select></br>
-		Sizex <input type='range' value='0.1' min='0' max='1' step='0.01' id='sizex'>
-		Sizey <input type='range' value='0.1' min='0' max='1' step='0.01' id='sizey'></br>
-		DefaultPosx <select id='defaultPosx'>
-			<option value='left'>Left</option>
-			<option value='center'>Center</option>
-			<option value='right'>Right</option>
-		</select>
-		DefaultPosy <select id='defaultPosy'>
-			<option value='top'>Top</option>
-			<option value='center'>Center</option>
-			<option value='bottom'>Bottom</option>
-		</select></br>
-		CPosx <input type='range' value='0.5' min='0' max='1' step='0.01' id='cposx'>
-		CPosy <input type='range' value='0.5' min='0' max='1' step='0.01' id='cposy'></br>
-		Color1 <input type='color' value='#00ff00' id='rcolor1'>
-		Pos1&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='rrange1'></br>
-		Color2 <input type='color' value='#0000ff' id='rcolor2'>
-		Pos2&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='rrange2'> 
-		<input type='button' value='AddColor' onclick='addRadialColor()'></br>
-		BlendMode <select id='blendMode'>
-			<option value='normal'>Normal</option>
-			<option value='multiply'>Multiply</option>
-			<option value='screen'>Screen</option>
-			<option value='overlay'>Overlay</option>
-			<option value='darken'>Darken</option>
-			<option value='lighten'>Lighten</option>
-			<option value='color-dodge' selected='true'>Color-dodge</option>
-			<option value='saturation'>Saturation</option>
-			<option value='color'>Color</option>
-			<option value='luminosity'>Luminosity</option>
-		</select>
 	</div>
-	<div id='bgStyle' style='float: left;'>this is a background style test div.</div>
+	<div style='width: 550px; border: 5px dotted blue; padding: 5px; float:left;'>
+		<p style='text-align: center; font-family: Arial;'><b>ImageBgColor</b><i style='color: pink;'>(effective when logo is bgimage)</i></p><hr/>
+		<div id='linear'>
+			<input type='radio' name='colorStyle' value='linear-gradient' onchange="changeColorGradient('linear')"><b>LinearGradiet</b>
+			<b>Direction </b><select id='ldirection' class='linear' onchange="changeBlend('ldirection','id')">
+				<option value='to left'>ToLeft</option>
+				<option value='to right' selected='true'>ToRight</option>
+				<option value='to bottom'>ToBottom</option>
+				<option value='to top'>ToTop</option>
+			</select>
+			<input type='button' value='AddColor' onclick='addLinearColor()' class='linear' onchange="changeBlend('','id')"></br>
+			Color1 <input type='color' value='#00ff00' id='lcolor1' class='linear' onchange="changeBlend('lcolor1','id')">
+			Pos1&nbsp;<input type='range' value='0' min='0' max='1' step='0.01' id='lrange1' class='linear' onchange="changeBlend('lrange1','id')"></br>
+			Color2 <input type='color' value='#ffffff' id='lcolor2' class='linear' onchange="changeBlend('lcolor2','id')">
+			Pos2&nbsp;<input type='range' value='1' min='0' max='1' step='0.01' id='lrange2' class='linear' onchange="changeBlend('lrange2','id')"></br><hr/>
+		</div>
+		<div id='radial'>
+			<input type='radio' name='colorStyle' value='radial-gradient' checked='true' onchange="changeColorGradient('radial')"><b>RadialGradient</b>
+			<b>DefaultSize</b> <select id='defaultSize' class='radial' onchange="changeBlend('defaultSize', 'id')">
+				<option value='closest-size' selected='true'>Closest-size</option>
+				<option value='closest-corner'>Closest-corner</option>
+				<option value='farthest-size'>Farthest-size</option>
+				<option value='farthest-corner'>Farthest-corner</option>
+			</select>
+			<input type='button' value='AddColor' onclick='addRadialColor()' class='radial' onchange="changeBlend()"></br>
+			Sizex <input type='range' value='0.1' min='0' max='1' step='0.01' id='sizex' class='radial' onchange="changeBlend('sizex', 'id')">
+			Sizey <input type='range' value='0.1' min='0' max='1' step='0.01' id='sizey' class='radial' onchange="changeBlend('sizey', 'id')"></br>
+			DefaultPosx <select id='defaultPosx' class='radial' onchange="changeBlend('defaultPosx', 'id')">
+				<option value='left' selected='true'>Left</option>
+				<option value='center'>Center</option>
+				<option value='right'>Right</option>
+			</select>
+			DefaultPosy <select id='defaultPosy' class='radial' onchange="changeBlend('defaultPosy', 'id')">
+				<option value='top' selected='true'>Top</option>
+				<option value='center'>Center</option>
+				<option value='bottom'>Bottom</option>
+			</select></br>
+			CPosx <input type='range' value='0.5' min='0' max='1' step='0.01' id='cposx' class='radial' onchange="changeBlend('cposx', 'id')">
+			CPosy <input type='range' value='0.5' min='0' max='1' step='0.01' id='cposy' class='radial' onchange="changeBlend('cposy', 'id')"></br>
+			Color1 <input type='color' value='#00ff00' id='rcolor1' class='radial' onchange="changeBlend('rcolor1', 'id')">
+			Pos1&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='rrange1' class='radial' onchange="changeBlend('rrange1' ,'id')"></br>
+			Color2 <input type='color' value='#0000ff' id='rcolor2' class='radial' onchange="changeBlend('rcolor2', 'id')">
+			Pos2&nbsp;<input type='range' value='0.5' min='0' max='1' step='0.01' id='rrange2' class='radial' onchange="changeBlend('rrange2', 'id')"></br><hr/>
+			BlendMode <select id='blendMode'>
+				<option value='normal'>Normal</option>
+				<option value='multiply'>Multiply</option>
+				<option value='screen'>Screen</option>
+				<option value='overlay' selected='true'>Overlay</option>
+				<option value='darken'>Darken</option>
+				<option value='lighten'>Lighten</option>
+				<option value='color-dodge'>Color-dodge</option>
+				<option value='saturation'>Saturation</option>
+				<option value='color'>Color</option>
+				<option value='luminosity'>Luminosity</option>
+			</select><small><i style='color: pink; font-family: Arial;'>(be not effective)</i></small>
+		</div>
+<!-- 		<b>Padding</b></br>
+		Left <input type='range' min='1' max='10' step='1' value='5' id='leftPadding'>
+		Right&nbsp;<input type='range' min='1' max='10' step='1' value='6' id='rightPadding'></br>
+		Top&nbsp;<input type='range' min='1' max='10' step='1' value='7' id='topPadding'>
+		Bottom <input type='range' min='1' max='10' step='1' value='8' id='bottomPadding'><hr/>
+		<b>Border</b></br>
+		Left <input type='range' min='1' max='10' value='5' step='1' id='leftBorder'>
+		Right&nbsp;<input type='range' min='1' max='10' value='1' step='1' id='rightBorder'></br>
+		Top&nbsp;<input type='range' min='1' max='10' value='2' step='1' id='topBorder'>
+		Bottom <input type='range' min='1' max='10' value='3' step='1' id='bottomBorder'><hr/> -->
+	</div>
+	</div>
+	<div id='bgStyle' style='float: left; width: 800px; height: 615px; margin-left: 30px; padding: 10px; border: 5px dotted pink;'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
 </div>
+<script type="text/javascript">
+	var objStyle = document.getElementById('bgStyle').style
+
+	var sizew = getValueById('sizew')//image size
+	var sizeh = getValueById('sizeh')
+	var bgcolor = getValueById('bgcolor')
+	var bgclip = getValueById('clip')
+	var imageName = getValueById('bgimage')
+	var bgimageRepeat = getValueByName('irepeat')
+	var imagePosx = getValueByName('iposx')
+	var imagePosy = getValueByName('iposy')
+	var imageAttach = getValueById('attachment')
+	var imageOrigin = getValueById('origin')
+	var blendMode = getValueById('blendMode')
+
+	var ldirection = getValueById('ldirection')
+	var lcolor1 = getValueById('lcolor1')
+	var lcolor2 = getValueById('lcolor2')
+	var lrange1 = (getValueById('lrange1') * 100).toFixed(2) + '%'
+	var lrange2 = (getValueById('lrange2') * 100).toFixed(2) + '%'
+	var defaultSize = getValueById('defaultSize')
+	var sizex = (getValueById('sizex') * 100).toFixed(2) + '%'
+	var sizey = (getValueById('sizey') * 100).toFixed(2) + '%'
+	var defaultPosx = getValueById('defaultPosx')
+	var defaultPosy = getValueById('defaultPosy')
+	var cposx = getValueById('cposx')
+	var cposy = getValueById('cposy')
+	var rcolor1 = getValueById('rcolor1')
+	var rcolor2 = getValueById('rcolor2')
+	var rrange1 = (getValueById('rrange1') * 100).toFixed(2) + '%'
+	var rrange2 = (getValueById('rrange2') * 100).toFixed(2) + '%'
+
+	var bgimage = setImage(imageName)
+
+	setValue()
+
+	function getValueById (id) {
+		var value = document.getElementById(id).value
+		if (!value) {
+			throw new Error(id + ' value undefined!')
+		}
+		return value
+	}
+
+	function getValueByName (name) {
+		var elems = document.getElementsByName(name)
+		var value
+		elems.forEach(function (elem) {
+			if (elem.checked) {
+				value = elem.value
+			}
+		})
+		if (!value) {
+			throw new Error(name + ' value undefined!')
+		}
+		return value
+	}
+
+	function setValue () {
+		objStyle.backgroundSize = sizew +'px ' + sizeh + 'px'
+		objStyle.backgroundColor = bgcolor
+		objStyle.backgroundImage = bgimage
+		// if (blendMode) {
+		// 	objStyle.backgroundBlendMode = blendMode
+		// }
+		objStyle.backgroundPosition = imagePosx + ' ' + imagePosy
+		objStyle.backgroundRepeat = bgimageRepeat
+		objStyle.backgroundClip = bgclip
+		objStyle.backgroundAttachment = imageAttach
+		objStyle.backgroundOrigin = imageOrigin
+	}
+
+	function setImage (imageName) {
+		var linear = document.getElementsByClassName('linear')
+		var radial = document.getElementsByClassName('radial')
+		// if (imageName == '../media/logo.png' || imageName == '../media/fengma.PNG') {
+		if (imageName !== 'none' && imageName !== 'inherit') {
+			var colorStyle = getValueByName('colorStyle')
+			if (colorStyle == 'linear-gradient') {
+				for (var key in radial) {
+					if (radial[key].disabled !== undefined && radial[key].disabled == false) {
+						radial[key].disabled = true
+					}
+				}
+				var linearGradient = 'linear-gradient(' + ldirection + ',' + lcolor1 + ' ' + lrange1 + ',' + lcolor2 + ' ' + lrange2 + ')'
+				var image = 'url(\'' + imageName + '\')' + ',' + linearGradient
+				return image
+			} else {
+				for (var key in linear) {
+					if (linear[key].disabled !== undefined && linear[key].disabled == false) {
+							linear[key].disabled = true
+						}
+				}
+				var radialGradient = 'radial-gradient(' + sizex + ' ' + sizey + ' at ' + defaultPosx + ' ' + defaultPosy + ',' + rcolor1 + ' ' + rrange1 + ',' + rcolor2 + ' ' + rrange2 + ')'
+				var image = 'url(\'' + imageName + '\')' + ',' + radialGradient
+				console.log(image)
+				return image
+			}
+		} else {
+			return ((imageName == 'none') ? '' : ('url(' + imageName + ')'))
+		}
+	}
+
+	function changeColorGradient (type) {
+		var linear = document.getElementsByClassName('linear')
+		var radial = document.getElementsByClassName('radial')
+		if (type == 'linear') {
+			for (var key in linear) {
+				if (linear[key].disabled !== undefined && linear[key].disabled == true) {
+					linear[key].disabled = false
+				}
+			}
+			for (var key in radial) {
+				if (radial[key].disabled !== undefined && radial[key].disabled == false) {
+					radial[key].disabled = true
+				}
+			}
+		} else {
+			for (var key in linear) {
+				if (linear[key].disabled !== undefined && linear[key].disabled == false) {
+						linear[key].disabled = true
+					}
+			}
+			for (var key in radial) {
+				if (radial[key].disabled !== undefined && radial[key].disabled == true) {
+					radial[key].disabled = false
+				}
+			}
+		}
+		bgimage = setImage(imageName)
+		objStyle.backgroundImage = bgimage
+	}
+
+	function changeBlend (id, type) {
+		if (type == 'id') {
+			var value = getValueById(id)
+			switch (id) {
+				case 'ldirection':
+				ldirection = value
+				break
+
+				case 'lcolor1':
+				lcolor1 = value
+				break
+
+				case 'lcolor2':
+				lcolor2 = value
+				break
+
+				case 'lrange1':
+				lrange1 = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'lrange2':
+				lrange2 = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'defaultSize':
+				defaultsize = value
+				break
+
+				case 'sizex':
+				sizex = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'sizey':
+				sizey = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'defaultPosx':
+				defaultPosx = value
+				break
+
+				case 'defaultPosy':
+				defaultPosy = value
+				break
+
+				case 'cposx':
+				defaultPosx = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'cposy':
+				defaultPosy = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'rcolor1':
+				rcolor1 = value
+				break
+
+				case 'rcolor2':
+				rcolor2 = value
+				break
+
+				case 'rrange1':
+				rrange1 = (value * 100).toFixed(2) + '%'
+				break
+
+				case 'rrange2':
+				rrange2 = (value * 100).toFixed(2) + '%'
+				break
+
+				default:
+				throw new Error('No ID matched!')
+				break
+			}
+		} else {
+
+		}
+		bgimage = setImage(imageName)
+		objStyle.backgroundImage = bgimage
+	}
+
+	function changeStyle (id, type) {
+		if (type == 'id') {
+			var value = getValueById(id)
+			switch (id) {
+				case 'sizew':
+				sizew = value
+				break
+
+				case 'sizeh':
+				sizeh = value
+				break
+
+				case 'bgcolor':
+				bgcolor = value
+				break
+
+				case 'clip':
+				bgclip = value
+				break
+
+				case 'bgimage':
+				imageName = value
+				bgimage = setImage(value)
+				break
+
+				case 'attachment':
+				imageAttach = value
+				break
+
+				case 'origin':
+				imageOrigin = value
+				break;
+
+				default:
+				throw new Error('no ID match!')
+				break;
+			}
+		} else {
+			var value = getValueByName(id)
+			switch (id) {
+				case 'irepeat':
+				bgimageRepeat = value
+				break
+
+				case 'iposx':
+				imagePosx = value
+				break
+
+				case 'iposy':
+				imagePosy = value
+				break
+
+				default:
+				throw new Error('no Name match!')
+				break;
+			}
+		}
+		setValue()
+	}
+</script>
 </body>
 </html>
