@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>html5 text</title>
+	<style type="text/css">
+	hr {
+		color: blue;
+	}
+	b {
+		font-family: Arial;
+		color: purple;
+	}
+	</style>
+</head>
+<body>
+<div style='width: 500px; float: left; border: 2px dotted steelblue; padding: 5px;'>
+<p style="text-transform: capitalize; text-align: center;"><b style='font-family: Arial; color: blue;'>text style control panel</b></p><hr/>
+<b>FontColor</b>&nbsp;<input type='color' value='#99cc99' id='fcolor'><hr/>
+<b>FontStyle</b>
+Normal<input name='fstyle' value='normal' type='radio' checked='true'> |
+Italic<input name='fstyle' value='italic' type='radio'> |
+Oblique<input name='fstyle' value='oblique' type='radio'><hr/>
+<b>FontVariant</b>
+Normal<input name='fvariant' value='normal' type='radio' checked='true'> |
+Small-caps<input name='fvariant' value='small-caps' type='radio'><hr/>
+<b>FontWeight</b>
+<input id='fweight' type='range' value='100' min='100' max='500' step='100'><br/>
+Normal<input name='fweight' value='normal' type='radio' checked='true'> |
+Bold<input name='fweight' value='bold' type='radio'> |
+Bolder<input name='fweight' value='bolder' type='radio'> |
+Lighter<input name='fweight' value='lighter' type='radio'><hr/>
+<b>FontSize</b>
+Length<input id='fsizel' type='range' min='16px' max='30px' step='1' value='16px'> |
+Percentage<input id='fsizep' type='range' min='0.1' max='2' setp='0.1' value='1'></br>
+Smaller<input name='fsize' type='radio' value='smaller' checked> |
+Larger<input name='fsize' type='radio' value='larger'> |
+XX-Small<input name='fsize' type='radio' value='xx-small'> |
+X-Small<input name='fsize' type='radio' value='x-small'> |
+Small<input name='fsize' type='radio' value='small'></br>
+Medium<input name='fsize' type='radio' value='medium'> |
+Large<input name='fsize' type='radio' value='large'> |
+X-Large<input name='fsize' type='radio' value='x-large'> |
+XX-Large<input name='fsize' type='radio' value='xx-large'><hr/>
+<b>FontFamily</b></br>
+<b>Family-Name</b>
+TimesNewRoman<input name='fFamily' type='checkbox' value='Times New Roman' checked> |
+Courier<input name='fFamily' type='checkbox' value='courier'> |
+Arial<input name='fFamily' type='checkbox' value='arial'></br>
+<b>Generic-Family</b>
+Serif<input name='fFamily' type='checkbox' value='serif' checked> |
+Sans-Serif<input name='fFamily' type='checkbox' value='sans-serif'> |
+Cursive<input name='fFamily' type='checkbox' value='cursive'></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fantasy<input name='fFamily' type='checkbox' value='fantasy'> |
+Monospace<input name='fFamily' type='checkbox' value='monospace'><hr/>
+<b>OtherFont</b>
+Caption<input name='font' type='radio' value='caption' checked>
+Icon<input name='font' type='radio' value='icon'>
+Menu<input name='font' type='radio' value='menu'>
+Message-box<input name='font' type='radio' value='message-box'>
+Small-Caption<input name='font' type='radio' value='small-caption'>
+Status-Bar<input name='font' type='radio' value='status-bar'>
+</div>
+<div style='margin-left: 10px; width: 500px; float: left; border: 2px dotted darkblue; background: pink content-box; padding: 5px;'>
+	<p id='text'>叶慈（叶芝），爱尔兰有史以来至为伟大的诗人，也是近世极受重视、极受喜爱的诗人之一。他精美深刻的诗篇，始终萦绕着沉重的爱尔兰，萦绕着爱尔兰的神话传说和海滩乡野。
+	本书由台湾著名诗人——杨牧，着力精译叶慈一生重要诗作近八十首，附以原文汉英对照，另有导言、注释等，以完整的体例呈现，名家编译，确非凡响。
+	叶慈（William Butler Yeats，1865—1939），又译叶芝，爱尔兰诗人、剧作家、小说家、散文家，神秘主义者。1923年，以其“始终富于灵感的诗歌”，并“以高度的艺术形式表达了整个民族的精神”，获诺贝尔文学奖。叶慈的诗受浪漫主义、唯美主义、神秘主义、象征主义和玄学诗的影响，他是传统诗歌形式的大师，又完成了向现代主义的转变。</p>
+</div>
+<script type="text/javascript">
+	var objStyle = document.getElementById('text').style
+
+	var font = {}
+	font.color = getValueById('fcolor')
+	font.fontStyle = getValueByName('fstyle', 'radio')
+	font.fontWeight = getValueByName('fweight', 'radio')
+	font.fontSize = getValueByName('fsize', 'radio')
+	font.fontFamily = getValueByName('fFamily', 'checkbox') //end with ,
+	font.font = getValueByName('font', 'radio')
+
+	setFontOnchange()
+	setFontStyle()
+
+	function getValueById (id) {
+		var value = document.getElementById(id).value
+		if (!value) {
+			throw new Error('No ID matched ' + id + '!')
+		} else {
+			return {value: value, type: 'id', hname: id}
+		}
+	}
+
+	function getValueByName (name, type) {
+		var elems = document.getElementsByName(name)
+		if (type !== 'checkbox') {
+			elems.forEach(function (elem) {
+				if (elem.checked) {
+					value = elem.value
+				}
+			})
+		} else {
+			elems.forEach(function (elem) {
+				if (elem.checked) {
+					value += (elem.value + ',')
+				}
+			})
+		}
+		if (!value) {
+			throw new Error('No Name matched ' + name + '!')
+		} else {
+			return {value: value, type:'name', hname: name}
+		}
+	}
+
+	function changeFontStyle (styleName, type, hname) {
+		if (type == 'id') {
+			var value = getValueById(hname)
+			console.log(styleName, type, hname, value)
+			objStyle[styleName] = value
+		} else {
+			var value = getValueByName(hname)
+			console.log(styleName, type, hname, value)
+			objStyle[styleName] = value
+		}
+	}
+
+	function setFontOnchange () {
+		for (var key in font) {
+			if (font[key].type == 'id') {
+				document.getElementById(font[key].hname).addEventListener('change', changeFontStyle(key, font[key].type, font[key].hname))
+			} else {
+				var elems = document.getElementsByName(font[key].hname)
+				elems.forEach(function (elem) {
+					elem.addEventListener('change', changeFontStyle(key, font[key].type, font[key].hname))
+				})
+			}
+		}
+	}
+
+	function setFontStyle () {
+		for (var key in font) {
+			objStyle[key] = font[key].value
+		}
+	}
+</script>
+</body>
+</html>
