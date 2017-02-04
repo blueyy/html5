@@ -1,120 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>html5 text</title>
+	<title>css text style</title>
 	<style type="text/css">
 	hr {
-		color: blue;
+		border: 0.5px dotted pink;
 	}
 	b {
 		font-family: Arial;
-		color: purple;
+		color: #888822;
 	}
 	</style>
 </head>
 <body>
-<div style='width: 500px; float: left; border: 2px dotted steelblue; padding: 5px;'>
-<p style="text-transform: capitalize; text-align: center;"><b style='font-family: Arial; color: blue;'>text style control panel</b></p><hr/>
-<b>FontColor</b>&nbsp;<input type='color' value='#99cc99' id='fcolor' onchange="changeFontStyle('color','id','fcolor')"><hr/>
-<b>FontStyle</b>
-Normal<input name='fstyle' value='normal' type='radio' checked='true' onchange="changeFontStyle('fontStyle','name','fstyle')"> |
-Italic<input name='fstyle' value='italic' type='radio' onchange="changeFontStyle('fontStyle','name','fstyle')"> |
-Oblique<input name='fstyle' value='oblique' type='radio' onchange="changeFontStyle('fontStyle','name','fstyle')"><hr/>
-<b>FontVariant</b>
-Normal<input name='fvariant' value='normal' type='radio' checked='true' onchange="changeFontStyle('fontStyle','name','fstyle')"> |
-Small-caps<input name='fvariant' value='small-caps' type='radio' onchange="changeFontStyle('fontStyle','name','fstyle')"><hr/>
-<b>FontWeight</b>
-<input id='fweight' type='range' value='100' min='100' max='700' step='100' onchange="changeFontStyle('fontWeight','id','fweight')"><br/>
-Normal<input name='fweight' value='normal' type='radio' checked='true' onchange="changeFontStyle('fontWeight','name','fweight')"> |
-Bold<input name='fweight' value='bold' type='radio' onchange="changeFontStyle('fontWeight','name','fweight')"> |
-Bolder<input name='fweight' value='bolder' type='radio' onchange="changeFontStyle('fontWeight','name','fweight')"> |
-Lighter<input name='fweight' value='lighter' type='radio' onchange="changeFontStyle('fontWeight','name','fweight')"><hr/>
-<b>FontSize</b>
-Length<input id='fsizel' type='range' min='16' max='30' step='1' value='16' onchange="changeFontStyle('fontSize','id','fsizel')"> |
-Percentage<input id='fsizep' type='range' min='0.1' max='2' setp='0.1' value='1' onchange="changeFontStyle('fontSize','id','fsizep')"></br>
-Smaller<input name='fsize' type='radio' value='smaller' checked onchange="changeFontStyle('fontSize','name','fsize')"> |
-Larger<input name='fsize' type='radio' value='larger' onchange="changeFontStyle('fontSize','name','fsize')"> |
-XX-Small<input name='fsize' type='radio' value='xx-small' onchange="changeFontStyle('fontSize','name','fsize')"> |
-X-Small<input name='fsize' type='radio' value='x-small' onchange="changeFontStyle('fontSize','name','fsize')"> |
-Small<input name='fsize' type='radio' value='small' onchange="changeFontStyle('fontSize','name','fsize')"></br>
-Medium<input name='fsize' type='radio' value='medium' onchange="changeFontStyle('fontSize','name','fsize')"> |
-Large<input name='fsize' type='radio' value='large' onchange="changeFontStyle('fontSize','name','fsize')"> |
-X-Large<input name='fsize' type='radio' value='x-large' onchange="changeFontStyle('fontSize','name','fsize')"> |
-XX-Large<input name='fsize' type='radio' value='xx-large' onchange="changeFontStyle('fontSize','name','fsize')"><hr/>
-<b>FontFamily</b></br>
-<b>Family-Name</b>
-TimesNewRoman<input name='fFamily' type='checkbox' value='Times New Roman' checked onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"> |
-Courier<input name='fFamily' type='checkbox' value='courier' onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"> |
-Arial<input name='fFamily' type='checkbox' value='arial' onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"></br>
-<b>Generic-Family</b>
-Serif<input name='fFamily' type='checkbox' value='serif' checked onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"> |
-Sans-Serif<input name='fFamily' type='checkbox' value='sans-serif' onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"> |
-Cursive<input name='fFamily' type='checkbox' value='cursive' onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fantasy<input name='fFamily' type='checkbox' value='fantasy' onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"> |
-Monospace<input name='fFamily' type='checkbox' value='monospace' onchange="changeFontStyle('fontFamily','name','fFamily', 'checkbox')"><hr/>
-<b>OtherFont</b>
-Caption<input name='font' type='radio' value='caption' checked onchange="changeFontStyle('font','name','font')"> |
-Icon<input name='font' type='radio' value='icon' onchange="changeFontStyle('font','name','font')"> |
-Menu<input name='font' type='radio' value='menu' onchange="changeFontStyle('font','name','font')"> |
-Message-box<input name='font' type='radio' value='message-box' onchange="changeFontStyle('font','name','font')"></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Small-Caption<input name='font' type='radio' value='small-caption' onchange="changeFontStyle('font','name','font')"> |
-Status-Bar<input name='font' type='radio' value='status-bar' onchange="changeFontStyle('font','name','font')">
+<div style='width: 700px; float: left; border: 2px dotted steelblue; padding: 5px;'>
+<p style="text-transform: capitalize; text-align: center;"><b style='font-family: Arial; color: #0099ff;'>text style control panel</b></p><hr/>
+<b>Color&nbsp;&nbsp;</b><input type='color' value='#88ff00' id='color' onchange="changeTextStyle('color','id','color')"><hr/>
+<b>Text-Align</b>
+Center<input type='radio' name='talign' value='center' checked onchange="changeTextStyle('textAlign','name','talign')"> |
+Right<input type='radio' name='talign' value='right' onchange="changeTextStyle('textAlign','name','talign')"> |
+Left<input type='radio' name='talign' value='left' onchange="changeTextStyle('textAlign','name','talign')"> |
+Justify<input type='radio' name='talign' value='justify' onchange="changeTextStyle('textAlign','name','talign')"><hr/>
+<b>Text-Decoration</b>
+None<input type='radio' name='tdecoration' value='none' onchange="changeTextStyle('textDecoration','name','tdecoration')" checked> |
+Overline<input type='radio' name='tdecoration' value='overline' onchange="changeTextStyle('textDecoration','name','tdecoration')"> |
+Line-Through<input type='radio' name='tdecoration' value='line-through' onchange="changeTextStyle('textDecoration','name','tdecoration')"> |
+Underline<input type='radio' name='tdecoration' value='underline' onchange="changeTextStyle('textDecoration','name','tdecoration')"> |
+Blink<input type='radio' name='tdecoration' value='blink' onchange="changeTextStyle('textDecoration','name','tdecoration')"><hr/>
+<b>Text-Transform</b>
+None<input type='radio' name='ttransform' value='none' onchange="changeTextStyle('textTransform','name','ttransform')" checked> |
+Uppercase<input type='radio' name='ttransform' value='uppercase' onchange="changeTextStyle('textTransform','name','ttransform')"> |
+Lowercase<input type='radio' name='ttransform' value='lowercase' onchange="changeTextStyle('textTransform','name','ttransform')"> |
+Capitalize<input type='radio' name='ttransform' value='capitalize' onchange="changeTextStyle('textTransform','name','ttransform')"><hr/>
+<b>Text-Indent</b>&nbsp;&nbsp;
+L<input type='range' id='tindentl' min='0' max='50' step='1' value='0' onchange="changeTextStyle('textIndent','id','tindentl')"> |
+P<input type='range' id='tindentp' min='0' max='1' step='0.01' value='0' onchange="changeTextStyle('textIndent','id','tindentp')"><hr/>
+<b>Text-Shadow</b>
+H<input type='range' min='-20' max='20' step='1' value='1' id='shadowh' onchange="changeTextStyle('textShadow','id','shadowh')"> |
+V<input type='range' min='-20' max='20' step='1' value='1' id='shadowv' onchange="changeTextStyle('textShadow','id','shadowv')"> |
+B<input type='range' min='-20' max='20' step='1' value='1' id='shadowb' onchange="changeTextStyle('textShadow','id','shadowb')"> |
+Color <input type='color' id='shadowc' value='#ff8800' onchange="changeTextStyle('textShadow','id','shadowc')"><hr/>
+<b>Letter-Spacing</b>&nbsp;
+L<input type='range' id='letterSpacingl' min='-20' max='20' step='1' value='0' onchange="changeTextStyle('letterSpacing','id','letterSpacingl')"> |
+Normal<input type='checkbox' id='letterSpacing' value='normal' checked onclick="changeTextStyle('letterSpacing','id','letterSpacing')"><hr/>
+<b>Line-Height</b>
+L<input type='range' id='lineHeightl' min='0' max='50' step='1' value='0' onchange="changeTextStyle('lineHeight','id','lineHeightl')"> |
+P<input type='range' id='lineHeightp' min='-2' max='2' step='0.01' value='0' onchange="changeTextStyle('lineHeight','id','lineHeightp')"> |
+N<input type='range' id='lineHeightn' min='0' max='10' step='1' value='0' onchange="changeTextStyle('lineHeight','id','lineHeightn')"> |
+Normal<input type='checkbox' id='lineHeight' value='normal' checked onclick="changeTextStyle('lineHeight','id','lineHeight')"><hr/>
+<b>Direction</b>&nbsp;&nbsp;
+RTL<input type='radio' name='direction' value='rtl' onchange="changeTextStyle('direction','name','direction')">|
+LTR<input type='radio' name='direction' vlaue='ltr' checked onchange="changeTextStyle('direction','name','direction')"><hr>
+<b>Unicode-Bidi</b>
+Normal<input type='radio' name='unicodeBidi' value='normal' onchange="changeTextStyle('unicodeBidi','name','unicodeBidi')" checked> |
+Embed<input type='radio' name='unicodeBidi' value='embed' onchange="changeTextStyle('unicodeBidi','name','unicodeBidi')"> |
+Bidi-Override<input type='radio' name='unicodeBidi' value='bidi-override' onchange="changeTextStyle('unicodeBidi','name','unicodeBidi')"> |
+Initial<input type='radio' name='unicodeBidi' value='initial' onchange="changeTextStyle('unicodeBidi','name','unicodeBidi')"><hr/>
+<b>Word-Spacing</b>
+L<input type='range' id='wordSpacingl' min='0' max='50' step='1' value='0' onchange="changeTextStyle('wordSpacing','id','wordSpacingl')"> |
+Normal<input type='checkbox' id='wordSpacing' checked onclick="changeTextStyle('wordSpacing','id','wordSpacing')"><hr/>
+<b>White-Space</b>
+Normal<input type='radio' name='whiteSpace' value='normal' onchange="changeTextStyle('whiteSpace','name','whiteSpace')" checked> |
+Pre<input type='radio' name='whiteSpace' value='pre' onchange="changeTextStyle('whiteSpace','name','whiteSpace')"> |
+Nowrap<input type='radio' name='whiteSpace' value='nowrap' onchange="changeTextStyle('whiteSpace','name','whiteSpace')"> |
+Pre-Line<input type='radio' name='whiteSpace' value='pre-line' onchange="changeTextStyle('whiteSpace','name','whiteSpace')"><hr/>
+<b>Vertical-Align</b>&nbsp;&nbsp;&nbsp;
+L<input type='range' id='verticalAlignl' min='-10' max='10' step='1' value='0' onchange="changeTextStyle('verticalAlign','id','verticalAlignl')">
+P<input type='range' id='verticalAlignp' min='-2' max='2' step='0.01' value='0' onchange="changeTextStyle('verticalAlign','id','verticalAlignp')"></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Baseline<input type='radio' name='verticalAlign' value='baseline' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"> |
+Sub<input type='radio' name='verticalAlign' value='sub' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"> |
+Super<input type='radio' name='verticalAlign' value='super' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"> |
+Top<input type='radio' name='verticalAlign' value='top' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"> |
+Text-Top<input type='radio' name='verticalAlign' value='text-top' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Middle<input type='radio' name='verticalAlign' value='middle' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"> |
+Bottom<input type='radio' name='verticalAlign' value='bottom' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"> |
+Text-Bottom<input type='radio' name='verticalAlign' value='text-bottom' onchange="changeTextStyle('verticalAlign','name','verticalAlign')"><hr/>
 </div>
-<div style='margin-left: 10px; width: 500px; float: left; border: 2px dotted darkblue; background: pink content-box; padding: 5px;'>
-	<p id='text'>叶慈（叶芝），爱尔兰有史以来至为伟大的诗人，也是近世极受重视、极受喜爱的诗人之一。他精美深刻的诗篇，始终萦绕着沉重的爱尔兰，萦绕着爱尔兰的神话传说和海滩乡野。
-	本书由台湾著名诗人——杨牧，着力精译叶慈一生重要诗作近八十首，附以原文汉英对照，另有导言、注释等，以完整的体例呈现，名家编译，确非凡响。
-	叶慈（William Butler Yeats，1865—1939），又译叶芝，爱尔兰诗人、剧作家、小说家、散文家，神秘主义者。1923年，以其“始终富于灵感的诗歌”，并“以高度的艺术形式表达了整个民族的精神”，获诺贝尔文学奖。叶慈的诗受浪漫主义、唯美主义、神秘主义、象征主义和玄学诗的影响，他是传统诗歌形式的大师，又完成了向现代主义的转变。</p>
+
+<div style='margin-left: 10px; width: 700px; float: left; border: 2px dotted darkblue; background: pink content-box; padding: 5px;'>
+	<p id='text'>This is a css text style test1.<img id='img' src='../media/logo.png' alt='logo'>
+	This is a css text style test2.</p>
 </div>
+
 <script type="text/javascript">
 	var objStyle = document.getElementById('text').style
 
-	var font = {}
-	font.color = getValueById('fcolor')
-	font.fontStyle = getValueByName('fstyle', 'radio')
-	font.fontWeight = getValueByName('fweight', 'radio')
-	font.fontSize = getValueByName('fsize', 'radio')
-	font.fontFamily = []
-	font.fontFamily = getValueByName('fFamily', 'checkbox') //end with ,
-	font.font = getValueByName('font', 'radio')
+	var shadowh = getValueById('shadowh')
+	var shadowv = getValueById('shadowv')
+	var shadowb = getValueById('shadowb')
+	var shadowc = getValueById('shadowc')
+	var shadow = setShadow(shadowh, shadowv, shadowb, shadowc)
 
-	// setFontOnchange()
-	setFontStyle()
+	var text = {}
+	text.color = getValueById('color')
+	text.textAlign = getValueByName('talign')
+	text.textDecoration = getValueByName('tdecoration')
+	text.textTransform = getValueByName('ttransform')
+	text.textIndent = 0
+	text.textShadow = {value:shadow, type:'id', hname:''}
+	text.letterSpacing = getValueById('letterSpacing')
+	text.lineHeight = getValueById('lineHeight')
+	text.direction = getValueByName('direction')
+	text.unicodeBidi = getValueByName('unicodeBidi')
+	text.wordSpacing = getValueById('wordSpacing')
+	text.whiteSpace = getValueByName('whiteSpace')
+
+	setObjStyle()
+
+	function setShadow (h, v, b, c) {
+		var shadow = h + ' ' + v + ' ' + b + ' ' + c
+		return shadow
+	}
 
 	function getValueById (id) {
 		var value = document.getElementById(id).value
 		if (!value) {
 			throw new Error('No ID matched ' + id + '!')
 		} else {
-			if (id == 'fsizel') {
+			if (id == 'tindentl' || id=='tlineHeightl' || id=='wordSpacingl' || id=='verticalAlignl'|| id=='letterSpacingl') {
 				value += 'px'
-			} else if (id == 'fsizep') {
+			} else if (id == 'tindentp' || id=='lineHeightp' || id=='verticalAlignp') {
 				value = (value * 100).toFixed(2) + '%'
+			} else if (id=='shadowh' || id=='shadowv' || id=='shadowb' || id=='shadowc') {
+				var h = document.getElementById('shadowh').value + 'px'
+				var v = document.getElementById('shadowv').value + 'px'
+				var b = document.getElementById('shadowb').value + 'px'
+				var c = document.getElementById('shadowc').value
+				value = setShadow(h, v, b, c)
+			} else if (id=='letterSpacing' || id=='wordSpacing' || id=='lineHeight') {
+				if (document.getElementById(id).checked) {
+					value = 'normal'
+				} else {
+					value = '10px'
+				}
 			}
 			return {value: value, type: 'id', hname: id}
 		}
 	}
 
-	function getValueByName (name, type) {
+	function getValueByName (name) {
 		var elems = document.getElementsByName(name)
 		var value
-		if (type !== 'checkbox') {
-			elems.forEach(function (elem) {
-				if (elem.checked) {
-					value = elem.value
-				}
-			})
-		} else {
-			var tempValue = []
-			elems.forEach(function (elem) {
-				if (elem.checked) {
-					tempValue.push(elem.value)
-				}
-			})
-			value = tempValue.join(',')
-			if ( value == '') {
-				alert('Please select a fontFamily style at least!')
+		elems.forEach(function (elem) {
+			if (elem.checked) {
+				value = elem.value
 			}
-		}
+		})
 		if (value == undefined) {
 			throw new Error('No Name matched ' + name + '!')
 		} else {
@@ -122,37 +153,24 @@ Status-Bar<input name='font' type='radio' value='status-bar' onchange="changeFon
 		}
 	}
 
-	function changeFontStyle (styleName, type, hname, htype) {
+	function setObjStyle () {
+		for (var key in text) {
+			objStyle[key] = text[key].value
+		}
+	}
+
+	function changeTextStyle (styleName, type, hname) {
 		var value
 		if (type == 'id') {
 			value = getValueById(hname)
 		} else {
-			if (! htype) {
-				value = getValueByName(hname)
-			} else {
-				value = getValueByName(hname, htype)
-			}
+			value = getValueByName(hname)
 		}
-		font[styleName] = value
-		objStyle[styleName] = font[styleName].value
-	}
-
-	function setFontOnchange () {
-		for (var key in font) {
-			if (font[key].type == 'id') {
-				document.getElementById(font[key].hname).addEventListener('change', changeFontStyle(this))
-			} else {
-				var elems = document.getElementsByName(font[key].hname)
-				elems.forEach(function (elem) {
-					elem.addEventListener('change', changeFontStyle)
-				})
-			}
-		}
-	}
-
-	function setFontStyle () {
-		for (var key in font) {
-			objStyle[key] = font[key].value
+		if (styleName == 'verticalAlign') {
+			var imgStyle = document.getElementById('img').style
+			imgStyle[styleName] = value.value
+		} else {
+			objStyle[styleName] = value.value
 		}
 	}
 </script>
